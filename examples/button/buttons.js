@@ -9,7 +9,7 @@ Ext.onReady(function(){
     // This function renders a block of buttons
     function renderButtons(title){
 
-        Ext.getBody().createChild({tag: 'h2', html: title});
+        Ext.get('main').createChild({tag: 'h2', html: title});
 
         new ButtonPanel(
             'Text Only',
@@ -27,13 +27,16 @@ Ext.onReady(function(){
         new ButtonPanel(
             'Icon Only',
             [{
-                iconCls: 'add16'
+                iconCls: 'add16',
+                ariaLabel: 'Add User'
             },{
                 iconCls: 'add24',
-                scale: 'medium'
+                scale: 'medium',
+                ariaLabel: 'Add User'
             },{
                 iconCls: 'add',
-                scale: 'large'
+                scale: 'large',
+                ariaLabel: 'Add User'
             }]
         );
 
@@ -155,7 +158,7 @@ ButtonPanel = Ext.extend(Ext.Panel, {
     defaultType: 'button',
     baseCls: 'x-plain',
     cls: 'btn-panel',
-    renderTo : 'docbody',
+    renderTo : 'main',
     menu: undefined,
     split: false,
 

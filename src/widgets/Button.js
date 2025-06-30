@@ -126,6 +126,13 @@ Ext.Button = Ext.extend(Ext.BoxComponent, {
     buttonSelector : 'button:first-child',
 
     /**
+     * @cfg {String} ariaLabel
+     * Optional text to apply as an `aria-label` attribute on the underlying
+     * button element for screen readers when no visible text is provided.
+     */
+    ariaLabel : undefined,
+
+    /**
      * @cfg {String} scale
      * <p>(Optional) The size of the Button. Three values are allowed:</p>
      * <ul class="mdetail-params">
@@ -358,6 +365,9 @@ Ext.Button = Ext.extend(Ext.BoxComponent, {
     // private
     initButtonEl : function(btn, btnEl){
         this.el = btn;
+        if (this.ariaLabel) {
+            btnEl.dom.setAttribute('aria-label', this.ariaLabel);
+        }
         this.setIcon(this.icon);
         this.setText(this.text);
         this.setIconClass(this.iconCls);
