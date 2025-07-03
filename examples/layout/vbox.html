@@ -23,17 +23,17 @@
             var currentName;
             var replace = function(config, name) {
                 var btns = Ext.getCmp('btns');
-                
+
                 if (name && name != currentName) {
                     currentName = name;
-                    
+
                     btns.remove(0);
-                
+
                     btns.add(config);
                 };
-                
+
                 // console.profile();
-                
+
                 btns.doLayout();
                 // console.profileEnd();
             }
@@ -352,30 +352,30 @@
                             }
                         },{
                             xtype:'button',
-                            text: 'Pack: start / Align: center',
+                            text: 'Pack: start / Align: stretch',
                             handler: function(){
                                 replace({
                                     layout: {
                                         type:'vbox',
                                         padding:'5',
-                                        pack:'start',
-                                        align:'center'
+                                        pack : 'start',
+                                        align: 'stretch'
                                     },
                                     defaults:{margins:'0 0 5 0'},
                                     items:[{
                                         xtype:'button',
+                                        flex: 1,
                                         text: 'Button 1'
                                     },{
                                         xtype:'button',
+                                        height: 100,
                                         text: 'Button 2'
                                     },{
                                         xtype:'button',
+                                        flex: 2,
                                         text: 'Button 3'
-                                    },{
-                                        xtype:'button',
-                                        text: 'Button 4'
                                     }]
-                                }, 'align pack start + align center');
+                                }, 'align pack start + align stretch');
                             }
                         },{
                             xtype:'button',

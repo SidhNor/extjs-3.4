@@ -2,6 +2,7 @@
   "name": "extjs-3.4",
   "version": "1.0.0",
   "main": "ext-all-debug-w-comments.js",
+  "type": "commonjs",
   "directories": {
     "doc": "docs",
     "example": "examples",
@@ -10,7 +11,7 @@
   "scripts": {
     "build": "gulp",
     "axe": "ts-node ./test/a11y/run-a11y.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run build && vitest run"
   },
   "keywords": [],
   "author": "",
@@ -23,7 +24,9 @@
     "gulp": "^5.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-terser": "^2.1.0",
+    "jsdom": "^26.1.0",
     "playwright": "^1.53.1",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "vitest": "^3.2.4"
   }
 }

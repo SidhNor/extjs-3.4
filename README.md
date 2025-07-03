@@ -13,6 +13,13 @@ Run
 npm run build
 ```
 
+### Running unit tests
+
+Run
+```sh
+npm run test
+```
+
 
 ### Running accessibility tests
 
