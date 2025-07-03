@@ -358,6 +358,11 @@ Ext.Button = Ext.extend(Ext.BoxComponent, {
     // private
     initButtonEl : function(btn, btnEl){
         this.el = btn;
+        if(this.disabled){
+            this.el.dom.setAttribute('aria-disabled', true);
+            btnEl.dom.setAttribute('aria-disabled', true);
+            btnEl.dom.disabled = true;
+        }
         this.setIcon(this.icon);
         this.setText(this.text);
         this.setIconClass(this.iconCls);
@@ -597,6 +602,11 @@ Ext.Button = Ext.extend(Ext.BoxComponent, {
                 this.el[disabled ? 'addClass' : 'removeClass'](this.disabledClass);
             }
             this.el.dom.disabled = disabled;
+            this.el.dom.setAttribute('aria-disabled', disabled);
+        }
+        if(this.btnEl){
+            this.btnEl.dom.disabled = disabled;
+            this.btnEl.dom.setAttribute('aria-disabled', disabled);
         }
         this.disabled = disabled;
     },
